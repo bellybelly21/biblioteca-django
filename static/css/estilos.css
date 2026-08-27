@@ -1,0 +1,22 @@
+.navbar-biblioteca {
+    background: linear-gradient(135deg, #212529, #343a40);
+}
+
+.navbar-biblioteca .navbar-brand {
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.navbar-biblioteca .nav-link {
+    color: #ffffff;
+    transition: color 0.2s ease;
+}
+
+.navbar-biblioteca .nav-link:hover {
+    color: #ffc107;
+}
+
+.navbar-biblioteca .nav-link.active {
+    color: #ffc107;
+    font-weight: bold;
+}
