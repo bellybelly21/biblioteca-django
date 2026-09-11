@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ titulo }} - Biblioteca</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Instrument Sans', sans-serif;
+            background-color: #f9fafb;
+            color: #111827;
+        }
+        .card {
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+        }
+        .btn-dark {
+            background-color: #111827;
+            border-color: #111827;
+        }
+        .btn-dark:hover {
+            background-color: #1f2937;
+            border-color: #1f2937;
+        }
+    </style>
+</head>
+<body class="bg-light d-flex align-items-center py-5" style="min-height: 100vh;">
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6 col-lg-5">
+                
+                <div class="card bg-white rounded-4 p-4 p-md-5">
+                    <div class="mb-4">
+                        <h2 class="h4 fw-bold mb-1">{{ titulo }}</h2>
+                        <p class="text-muted small">Complete los campos correspondientes del libro.</p>
+                    </div>
+
+                    <form method="POST">
+                        {% csrf_token %}
+                        
+                        <!-- Renderizado del formulario de Django con clases limpias -->
+                        {{ form.as_p }}
+
+                        <div class="d-grid gap-2 mt-4">
+                            <button type="submit" class="btn btn-dark py-2 fw-semibold">Guardar cambios</button>
+                            <a href="{% url 'catalogo' %}" class="btn btn-light border py-2 text-muted">Cancelar</a>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

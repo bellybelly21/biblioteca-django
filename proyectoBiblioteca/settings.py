@@ -5,6 +5,9 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
+LOGIN_URL = '/accounts/login/'
+LOGIN_REDIRECT_URL = 'index' 
+LOGOUT_REDIRECT_URL = 'index'
 
 
 # Quick-start development settings - unsuitable for production
@@ -29,9 +32,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'catalogoApp',
-    'personalApp',
-    'institucionalApp',
-    'django_bootstrap5'
 ]
 
 MIDDLEWARE = [
@@ -71,8 +71,15 @@ WSGI_APPLICATION = 'proyectoBiblioteca.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'biblioteca_db',
+        'USER': 'inacap',
+        'PASSWORD': 'inacap123',
+        'HOST': 'localhost',
+        'PORT': '3306',
+         'OPTIONS': {
+             'init_command': 'SET sql_mode = "STRICT_ALL_TABLES"',
+         }
     }
 }
 
