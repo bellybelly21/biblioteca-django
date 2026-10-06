@@ -1,22 +1,21 @@
 # 📚 Biblioteca Django - Sistema de Gestión y Catálogo
 
-Sistema web institucional y de gestión para una biblioteca, desarrollado con **Python**, **Django** y **Bootstrap 5**. El proyecto implementa un flujo completo de gestión con una interfaz limpia, minimalista y responsive, además de un sistema de autenticación de usuarios para asegurar las operaciones administrativas.
+Sistema web institucional y de gestión para una biblioteca, desarrollado con Python, Django y Bootstrap 5. El proyecto implementa un flujo completo de gestión con una interfaz limpia, minimalista y responsive, complementado con un sistema robusto de autenticación y una **API RESTful completa** con soporte para sincronización offline.
 
 <img src="image.png" alt="Vista del proyecto" width="800">
 
 ## ✨ Características Principales
-
-*   📊 **Dashboard Principal (`/`)**: Panel de control centralizado con métricas clave (total de libros, libros disponibles y total de autores) y accesos directos.
-*   📖 **Catálogo de Libros**: Listado público de libros.
-*   👥 **Módulo de Autores**: Visualización y registro de autores asociados a la biblioteca.
-*   🔒 **Sistema de Autenticación (Login/Logout)**: Control de sesiones integrado utilizando el sistema nativo de Django.
-*   🛡️ **Seguridad en Operaciones CRUD**: Las vistas de Creación, Edición y Eliminación están protegidas mediante decoradores (`@login_required`), permitiendo que los usuarios anónimos solo tengan permisos de lectura.
+- 📊 **Dashboard Principal (`/`):** Panel de control centralizado con métricas clave (total de libros, libros disponibles y total de autores) y accesos directos.
+- 📖 **Catálogo de Libros y Autores:** Listado y gestión completa de libros, géneros, estados y autores asociados.
+- 🔌 **API RESTful (`/api/`):** Endpoints seguros construidos con Django REST Framework para consumo externo o aplicaciones móviles.
+- 🔄 **Sincronización Offline (`/api/sync/`):** Funcionalidad especial para recibir y validar cargas masivas de datos recolectados sin conexión.
+- 🛡️ **Seguridad Avanzada:** Autenticación de sesiones tradicionales para la web y protección mediante **JSON Web Tokens (JWT)** para todos los endpoints de la API.
 
 ---
 
 ## 🛠️ Tecnologías Utilizadas
 
-*   **Backend**: Python 3.13, Django 4.2
+*   **Backend**: Python 3.13, Django 4.2, Django REST Framework, SimpleJWT
 *   **Base de Datos**: MySQL (XAMPP)
 *   **Frontend**: HTML5, CSS3, Bootstrap 5, Google Fonts
 
@@ -29,6 +28,20 @@ Sistema web institucional y de gestión para una biblioteca, desarrollado con **
 *   **Autores (`/autores/`)**: Listado de autores registrados en el sistema.
 *   **Acceso (`/accounts/login/`)**: Inicio de sesión exclusivo para administradores y personal autorizado.
 
+---
+
+📂 Estructura de Endpoints de la API
+Si deseas interactuar con la API RESTful (por ejemplo, mediante Postman), estas son las rutas principales disponibles:
+
+1. **Autenticación (JWT):**
+   - Obtener Token: `POST /api/token/` (Envía `username:inacap` y `password:inacap123` en formato JSON para recibir tu token de acceso).
+   - Refrescar Token: `POST /api/token/refresh/`
+
+2. **Gestión de Recursos (Requieren Header: `Authorization: Bearer`):**
+   - Libros (CRUD completo): `GET`, `POST`, `PUT`, `DELETE` en `/api/libros/`
+   - Autores (Listar): `GET` en `/api/autores/`
+   - Sincronización Offline: `POST /api/sync/` (Envía un arreglo JSON con múltiples registros para almacenamiento masivo seguro).
+   
 ---
 
 ## 🚀 Instalación y Puesta en Marcha
