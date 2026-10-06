@@ -1,55 +1,66 @@
-📚 Biblioteca Django
-Sitio web institucional para una biblioteca, desarrollado con Python, Django y Bootstrap.
-El proyecto presenta de forma sencilla y organizada la información de la biblioteca, incluyendo datos institucionales, catálogo de libros, disponibilidad, encargados y actividades realizadas.
+# 📚 Biblioteca Django - Sistema de Gestión y Catálogo
+
+Sistema web institucional y de gestión para una biblioteca, desarrollado con **Python**, **Django** y **Bootstrap 5**. El proyecto implementa un flujo completo de gestión con una interfaz limpia, minimalista y responsive, además de un sistema de autenticación de usuarios para asegurar las operaciones administrativas.
 
 <img src="image.png" alt="Vista del proyecto" width="800">
 
-✨ Características
-🏛️ Información institucional de la biblioteca.
-📚 Catálogo de libros disponibles.
-📖 Consulta del estado de disponibilidad de los libros.
-👥 Tabla con información de los encargados de la biblioteca.
-🎭 Sección de actividades de la biblioteca.
-🎨 Interfaz sencilla y responsive utilizando Bootstrap.
-🌐 Desarrollo basado en Django.
-🛠️ Tecnologías utilizadas
-🐍 Python
-🌐 Django
-🎨 Bootstrap
-🖥️ HTML5
-🎨 CSS3
-📂 Contenido del sitio
+## ✨ Características Principales
 
-El sitio está organizado en diferentes secciones para facilitar la consulta de la información:
-Inicio: presentación general de la biblioteca.
-Información institucional: información relacionada con la biblioteca.
-Catálogo: listado de libros y su disponibilidad.
-Encargados: tabla con los responsables de la biblioteca.
-Actividades: información sobre las actividades realizadas por la biblioteca.
+*   📊 **Dashboard Principal (`/`)**: Panel de control centralizado con métricas clave (total de libros, libros disponibles y total de autores) y accesos directos.
+*   📖 **Catálogo de Libros**: Listado público de libros.
+*   👥 **Módulo de Autores**: Visualización y registro de autores asociados a la biblioteca.
+*   🔒 **Sistema de Autenticación (Login/Logout)**: Control de sesiones integrado utilizando el sistema nativo de Django.
+*   🛡️ **Seguridad en Operaciones CRUD**: Las vistas de Creación, Edición y Eliminación están protegidas mediante decoradores (`@login_required`), permitiendo que los usuarios anónimos solo tengan permisos de lectura.
 
-🚀 Instalación
-Clonar el repositorio:
-git clone https://github.com/bellybelly21/biblioteca-django.git
+---
+
+## 🛠️ Tecnologías Utilizadas
+
+*   **Backend**: Python 3.13, Django 4.2
+*   **Base de Datos**: MySQL (XAMPP)
+*   **Frontend**: HTML5, CSS3, Bootstrap 5, Google Fonts
+
+---
+
+## 📂 Estructura del Sitio
+
+*   **Inicio (`/`)**: Dashboard general con estadísticas y accesos rápidos.
+*   **Catálogo de Libros (`/catalogo/`)**: Tabla con los libros registrados, códigos, géneros, años, estados y autor.
+*   **Autores (`/autores/`)**: Listado de autores registrados en el sistema.
+*   **Acceso (`/accounts/login/`)**: Inicio de sesión exclusivo para administradores y personal autorizado.
+
+---
+
+## 🚀 Instalación y Puesta en Marcha
+
+1. **Clonar el repositorio:**
+git clone [https://github.com/bellybelly21/biblioteca-django.git](https://github.com/bellybelly21/biblioteca-django.git)
 cd biblioteca-django
-
-Crear y activar un entorno virtual:
+   
+2. **Crear y activar un entorno virtual:**
 python -m venv venv
-
-En Windows:
+# En Windows:
 venv\Scripts\activate
 
-Instalar Django:
+3. **Instalar dependencias:**
 pip install django
 
-Ejecutar el proyecto:
+4. **Aplicar migraciones a la base de datos:**
+python manage.py makemigrations
+python manage.py migrate
+
+5. **Crear un superusuario (para acceder a las funciones de creación, edición y eliminación):**
+python manage.py createsuperuser
+
+6. **Ejecutar el servidor de desarrollo:**
 python manage.py runserver
 
-Luego ingresar desde el navegador a:
-http://127.0.0.1:8000/
+Luego, ingresa desde tu navegador a: http://127.0.0.1:8000/
+
 
 🎯 Objetivo
-El objetivo del proyecto es crear una página web sencilla para presentar la información y los recursos de una biblioteca de manera clara, ordenada y accesible.
-El proyecto fue desarrollado como una práctica utilizando Django, integrando Bootstrap para el diseño y la adaptación de la interfaz.
+El objetivo del proyecto es desarrollar una aplicación web funcional utilizando Django, superando el panel de administración tradicional para ofrecer una interfaz pública respaldada por un sistema seguro de autenticación de sesiones y gestión de datos relacionales (Libros y Autores).
 
 📄 Licencia
-Proyecto desarrollado con fines educativos.
+Proyecto desarrollado con fines académicos y educativos.
+
